@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Sample usage of Salesforce Ant tasks" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+
+
+    <property file="build.properties"/>
+  
+  <property environment="env"/>
+
+
+   <target name="deploy"  >
+
+	 
+   <sf:deploy
+
+	      
+      username="${sf.username}"
+
+	         
+      password="${sf.password}"
+
+	        
+      serverurl="${sf.serverurl}"
+
+	  
+      deployRoot="C:\Program Files (x86)\Jenkins\workspace\sunday_jenkins_project\sunday_test\src"
+
+	     />
+
+	 
+</target>
+
+
+
+   
+
+</project>
+
+
+
+
+
+
+
+
+
+
+
+target name="test" depends="proxy">
+4
+  <mkdir dir="retrieveUnpackaged"/>
+5
+  <!-- Retrieve the contents into another directory -->
+6
+  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="retrieveUnpackaged" unpackaged="unpackaged/package.xml" unzip="false" />
+7
+</target>
